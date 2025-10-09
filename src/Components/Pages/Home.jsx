@@ -10,7 +10,7 @@ import Servicess from '../Ui/Servicess'
 
 function Home() {
   return (
-    <div className='flex gap-24 h-fit py-9 flex-col'>
+    <div className='flex flex-col gap-22 h-fit py-9 '>
       <Herosection />
       <Card/>
       <Abouthouse />

@@ -1,29 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 
 import Abouthouse from '../Ui/Abouthouse'
 import Videosection from '../Ui/Videosection'
 import Testimonial from '../Ui/Testimonial'
 import Instagramsection from '../Ui/Instagramsection'
-import Footer from '../Navigation/Footer'
+
 import New from '../Ui/New'
 import Servicess from '../Ui/Servicess'
 
 
 
 
-function About() {
-  return (
 
+
+
+function About() {
+   
+  return (
     <div className='flex gap-24 h-fit py-9 flex-col'>
     <New title="About"/>
       <Abouthouse />
       <Servicess />
+     
       <Videosection />
       <Testimonial />
       <Instagramsection />
-    </div>
-
+     
+      
+      </div>
   )
 }
 

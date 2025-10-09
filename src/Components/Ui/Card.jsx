@@ -1,45 +1,47 @@
-import React from 'react'
-import card1 from "../../assets/4.png"
-import card2 from "../../assets/5.png"
-import card3 from "../../assets/6.png"
+
+
+import React from "react";
+import card1 from "../../assets/4.png";
+import card2 from "../../assets/5.png";
+import card3 from "../../assets/6.png";
 
 function Card() {
+  const cards = [
+    {
+      img: card1,
+      title: "Tailor Sewing",
+      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+    },
+    {
+      img: card2,
+      title: "Measurement",
+      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+    },
+    {
+      img: card3,
+      title: "Ready-made",
+      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+    },
+  ];
+
   return (
-    <div className='flex ml-70 my-20 gap-16   w-fit'>
-       <div className=' '>
-        <img src={card1} alt="card" className=' w-70 h-85' />
-        <div className='mt-10 mb-2 text-2xl font-medium'>
-          Tailor Sweing
+    <div className="mx-10 grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center">
+      {cards.map((card, index) => (
+        <div
+          key={index}
+          className="transition-transform duration-300 hover:scale-105 w-full max-w-sm bg-white rounded-2xl shadow-lg p-6 text-center"
+        >
+          <img
+            src={card.img}
+            alt={card.title}
+            className="w-full h-64 object-cover rounded-xl mx-auto"
+          />
+          <div className="mt-6 mb-2 text-2xl font-medium">{card.title}</div>
+          <div className="text-gray-600">{card.desc}</div>
         </div>
-        <div className='w-60 '>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
-        </div>
-
-       </div>
-        <div className=' '>
-        <img src={card2} alt="card" className=' w-70 h-85 ' />
-         <div className='mt-10 mb-2 text-2xl font-medium'>
-          Mesurement
-        </div>
-        <div className='w-65'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
-        </div>
-
-
-       </div>
-        <div className=' '>
-        <img src={card3} alt="card" className=' w-70 h-85'/>
-         <div className='mt-10 mb-2 text-2xl font-medium'>
-          Ready-made
-        </div>
-        <div className='w-60'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
-        </div>
-
-
-       </div>
+      ))}
     </div>
-  )
+  );
 }
 
-export default Card
+export default Card;

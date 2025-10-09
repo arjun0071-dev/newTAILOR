@@ -9,21 +9,21 @@ import blogsec5 from '../../assets/blog-section5.png'
 
 import Instagramsection from '../Ui/Instagramsection'
 
-
 function Blog() {
   return (
-    <div className='flex  h-fit py-9 flex-col'>
+    <div className='flex flex-col h-fit py-9'>
       <New title="Blog" />
-     <div className='grid grid-cols-2 py-[30px] space-y-[50px] '>
-       <Blogsection img={blogsec1} />
-      <Blogsection img={blogsec2} />
-      <Blogsection img={blogsec3} />
-      <Blogsection img={blogsec4} />
-      <Blogsection img={blogsec5} />
       
+   
+      <div className='grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-8 py-[30px]'>
+        <Blogsection img={blogsec1} />
+        <Blogsection img={blogsec2} />
+        <Blogsection img={blogsec3} />
+        <Blogsection img={blogsec4} />
+        <Blogsection img={blogsec5} />
+      </div>
       
-     </div>
-      <Instagramsection/>
+      <Instagramsection />
     </div>
   )
 }

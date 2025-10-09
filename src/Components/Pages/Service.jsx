@@ -17,6 +17,7 @@ function Service() {
       <Servicess />
       <Videosection />
       <Testimonial />
+      <Instagramsection/>
        
     </div>
   )
