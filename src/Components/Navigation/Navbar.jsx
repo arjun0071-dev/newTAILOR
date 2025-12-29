@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import myImage from "../../assets/logo.png";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
   const location = useLocation();
 
   const navs = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
-    { name: "Api", path: "/api" },
+    // { name: "Api", path: "/api" },
     { name: "Services", path: "/services" },
     { name: "Blog", path: "/blog" },
     { name: "Contact", path: "/contact" },
@@ -21,15 +22,23 @@ function Navbar() {
     { name: "Elements", path: "/elements" },
   ];
 
+  const handleLogout = () => {
+    localStorage.removeItem("access_token");
+    navigate("/"); // redirect to home/login
+  };
+
+  const isActive = (path) => location.pathname === path || location.pathname.startsWith(path);
+
   return (
-    <nav className="fixed z-20 w-full bg-white shadow-md">
+    <div className="fixed z-20 w-full bg-white shadow-md">
+      {/* Navbar container */}
       <div className="flex justify-between items-center px-6 py-4">
-     
+        {/* Logo */}
         <Link to="/">
           <img src={myImage} alt="Logo" className="w-28 h-auto" />
         </Link>
 
-        
+        {/* Desktop Menu */}
         <div className="hidden md:flex gap-6 font-medium items-center">
           {navs.map((val, i) => (
             <div key={i} className="group relative">
@@ -37,9 +46,7 @@ function Navbar() {
                 <>
                   <span
                     className={`cursor-pointer py-2 px-2 transition ${
-                      location.pathname === val.path
-                        ? "text-blue-600"
-                        : "hover:text-blue-600"
+                      isActive("/blog") ? "text-blue-600" : "hover:text-blue-600"
                     }`}
                   >
                     {val.name}
@@ -60,9 +67,7 @@ function Navbar() {
                 <Link
                   to={val.path}
                   className={`py-2 px-2 transition ${
-                    location.pathname === val.path
-                      ? "text-blue-600"
-                      : "hover:text-blue-600"
+                    isActive(val.path) ? "text-blue-600" : "hover:text-blue-600"
                   }`}
                 >
                   {val.name}
@@ -71,15 +76,16 @@ function Navbar() {
             </div>
           ))}
 
-   
-          <Link
-            to="/contact"
+          {/* Logout */}
+          <button
+            onClick={handleLogout}
             className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold shadow hover:bg-blue-700 transition"
           >
-            VISIT US
-          </Link>
+            LOG OUT
+          </button>
         </div>
 
+        {/* Mobile Menu Button */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="md:hidden flex flex-col gap-1"
@@ -90,6 +96,7 @@ function Navbar() {
         </button>
       </div>
 
+      {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden bg-white shadow-lg px-6 py-4 space-y-3">
           {navs.map((val, i) => (
@@ -124,17 +131,19 @@ function Navbar() {
             </div>
           ))}
 
-       
-          <Link
-            to="/contact"
-            className="block text-center bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition"
-            onClick={() => setMenuOpen(false)}
+          {/* Logout for mobile */}
+          <button
+            onClick={() => {
+              handleLogout();
+              setMenuOpen(false);
+            }}
+            className="w-full bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold shadow hover:bg-blue-700 transition"
           >
-            VISIT US
-          </Link>
+            LOG OUT
+          </button>
         </div>
       )}
-    </nav>
+    </div>
   );
 }
 

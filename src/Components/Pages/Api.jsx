@@ -1,14 +1,18 @@
-import React from 'react'
-import Table from '../PageComponents/Api/Table'
-import Form from '../PageComponents/Api/Form'
+// import React from 'react'
+// import Table from '../PageComponents/Api/Table'
+// import New from '../Ui/New'
 
-function Api() {
-  return (
-    <div>
-        <Form/>
-        <Table/>
-    </div>
-  )
-}
+// import Formn from '../PageComponents/Api/From'
 
-export default Api
+
+// function Api() {
+//   return (
+//     <div className='flex flex-col gap-20 mb-12'>
+//       <New title="Api"/>
+//     <Formn/>
+//     <Table/>
+//     </div>
+//   )
+// }
+
+// export default Api
