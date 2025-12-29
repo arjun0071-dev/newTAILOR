@@ -7,9 +7,7 @@ import Blog from "./Components/Pages/Blog";
 import Contact from "./Components/Pages/Contact";
 import Service from "./Components/Pages/Service";
 
-import Delete from "./Components/PageComponents/Api/Delete";
-import View from "./Components/PageComponents/Api/View";
-import Edit from "./Components/PageComponents/Api/Edit";
+
 
 import Layout from "./Components/Hoc/Layout";
 
@@ -25,9 +23,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
 
         {/* API Routes */}
-        <Route path="/delete/:id" element={<Delete />} />
-        <Route path="/view/:id" element={<View />} />
-        <Route path="/edit/:id" element={<Edit />} />
+     
       </Route>
     </Routes>
   );
